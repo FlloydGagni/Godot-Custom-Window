@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://c505dkc55ubjv"]
+[gd_scene load_steps=12 format=3 uid="uid://c505dkc55ubjv"]
 
 [ext_resource type="Script" uid="uid://dydyshbixwr8x" path="res://scripts/title_bar_container.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://bsqq5w7mkbbph" path="res://scripts/main.gd" id="1_sugp2"]
 [ext_resource type="Script" uid="uid://b1sb3kgcswt37" path="res://scripts/handlers.gd" id="2_0wfyh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
@@ -31,13 +32,18 @@ bg_color = Color(0.400698, 0.400698, 0.400698, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="MainWindow" type="Window"]
-size = Vector2i(1080, 720)
-borderless = true
-min_size = Vector2i(400, 300)
-max_size = Vector2i(1920, 1080)
+[node name="MainWindow" type="Control"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sugp2")
 
 [node name="MainContainer" type="PanelContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -92,15 +98,6 @@ layout_mode = 2
 mouse_filter = 2
 script = ExtResource("2_0wfyh")
 
-[node name="Top" type="Control" parent="MainContainer/Handlers"]
-custom_minimum_size = Vector2(0, 5)
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 5.0
-grow_horizontal = 2
-mouse_default_cursor_shape = 9
-
 [node name="Right" type="Control" parent="MainContainer/Handlers"]
 custom_minimum_size = Vector2(5, 0)
 layout_mode = 1
@@ -124,33 +121,6 @@ grow_horizontal = 2
 grow_vertical = 0
 mouse_default_cursor_shape = 9
 
-[node name="Left" type="Control" parent="MainContainer/Handlers"]
-custom_minimum_size = Vector2(5, 0)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-mouse_default_cursor_shape = 10
-
-[node name="UpperLeftCorner" type="Control" parent="MainContainer/Handlers"]
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 1
-anchors_preset = 0
-offset_right = 5.0
-offset_bottom = 5.0
-mouse_default_cursor_shape = 12
-
-[node name="UpperRightCorner" type="Control" parent="MainContainer/Handlers"]
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -5.0
-offset_bottom = 5.0
-grow_horizontal = 0
-mouse_default_cursor_shape = 11
-
 [node name="BottomRightCorner" type="Control" parent="MainContainer/Handlers"]
 custom_minimum_size = Vector2(5, 5)
 layout_mode = 1
@@ -164,14 +134,3 @@ offset_top = -5.0
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 12
-
-[node name="BottomLeftCorner" type="Control" parent="MainContainer/Handlers"]
-custom_minimum_size = Vector2(5, 5)
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -5.0
-offset_right = 5.0
-grow_vertical = 0
-mouse_default_cursor_shape = 11
